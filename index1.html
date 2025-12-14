@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M R Aakash | Product Manager Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Navigation Bar ---------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.8) 100%);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.98);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00d4ff 0%, #5b9bd5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00d4ff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      margin-top: 70px;
+      height: 85vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(10, 10, 10, 0.9) 100%);
+      overflow: hidden;
+    }
+    
+    .hero-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1600px;
+      gap: 100px;
+      padding-right: 50px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 750px;
+      z-index: 2;
+      position: relative;
+      flex: 0 1 auto;
+    }
+
+    .hero-image {
+      z-index: 2;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .hero-image img {
+      width: 400px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid rgba(0, 212, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+      transition: transform 0.3s ease;
+      background: #1e293b;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 70px rgba(0, 212, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 24px;
+      color: #b0b0b0;
+      margin-bottom: 15px;
+      font-weight: 300;
+    }
+
+    .hero .description {
+      font-size: 18px;
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00d4ff 0%, #5b9bd5 100%);
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Content Sections ---------- */
+    .content-section {
+      padding: 60px 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    /* ---------- Card Container (Horizontal Scroll) ---------- */
+    .card-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 20px 0;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #00d4ff #1a1a1a;
+    }
+
+    .card-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .card-container::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+
+    .card-container::-webkit-scrollbar-thumb {
+      background: #00d4ff;
+      border-radius: 10px;
+    }
+
+    .card-container::-webkit-scrollbar-thumb:hover {
+      background: #5b9bd5;
+    }
+
+    /* ---------- Experience Cards ---------- */
+    .experience-card {
+      min-width: 400px;
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-8px);
+      border-color: #00d4ff;
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 15px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #00d4ff;
+      margin-bottom: 5px;
+    }
+
+    .card-company {
+      font-size: 16px;
+      color: #b0b0b0;
+      font-weight: 500;
+    }
+
+    .card-period {
+      font-size: 14px;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .card-description {
+      font-size: 15px;
+      color: #d0d0d0;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    .card-description ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card-description li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card-description li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: rgba(0, 212, 255, 0.15);
+      color: #00d4ff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    /* ---------- Skill Cards ---------- */
+    .skill-card {
+      min-width: 280px;
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: #00d4ff;
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+      color: #00d4ff;
+      margin-bottom: 15px;
+    }
+
+    .skill-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .skill-items {
+      font-size: 14px;
+      color: #b0b0b0;
+      line-height: 1.8;
+    }
+
+    /* ---------- Project Card ---------- */
+    .project-card {
+      min-width: 500px;
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #00d4ff;
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    }
+
+    .project-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #00d4ff;
+      margin-bottom: 15px;
+    }
+
+    .project-description {
+      font-size: 15px;
+      color: #d0d0d0;
+      line-height: 1.8;
+    }
+
+    /* ---------- Education Card ---------- */
+    .education-card {
+      min-width: 350px;
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .education-card:hover {
+      transform: translateY(-8px);
+      border-color: #00d4ff;
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+    }
+
+    .edu-icon {
+      font-size: 32px;
+      color: #00d4ff;
+      margin-bottom: 15px;
+    }
+
+    .edu-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .edu-degree {
+      font-size: 16px;
+      color: #b0b0b0;
+      margin-bottom: 8px;
+    }
+
+    .edu-period {
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* ---------- Contact Section ---------- */
+    .contact-section {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(10, 10, 10, 0.9) 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+      max-width: 1400px;
+      margin: 40px auto;
+      flex-wrap: nowrap;
+    }
+
+    .contact-item {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-item {
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    }
+
+    .contact-icon {
+      font-size: 36px;
+      color: #00d4ff;
+      margin-bottom: 15px;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background: #0a0a0a;
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-badge {
+      background: linear-gradient(135deg, #00d4ff 0%, #5b9bd5 100%);
+      color: #0a0a0a;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .visitor-count {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* ---------- Responsive Design ---------- */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .nav-links {
+        gap: 15px;
+        font-size: 14px;
+      }
+
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+        min-height: 70vh;
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero .tagline {
+        font-size: 18px;
+      }
+
+      .hero .description {
+        font-size: 16px;
+      }
+
+      .hero-image img {
+        width: 280px;
+        height: 350px;
+      }
+
+      .contact-grid {
+        flex-direction: column;
+      }
+
+      .content-section {
+        padding: 40px 20px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .experience-card,
+      .project-card {
+        min-width: 320px;
+      }
+
+      .skill-card,
+      .education-card {
+        min-width: 260px;
+      }
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">Portfolio <> Product</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1>M R Aakash</h1>
+        <p class="tagline">Building Scalable Products with User-Centric Approach</p>
+        <p class="description">
+          Aspiring Product Manager with experience in product strategy, roadmapping, and cross-functional collaboration.
+           Skilled in translating customer insights into prioritized features and KPIs to support B2B product development and launches. 
+           Engineering background with a user-centric, structured approach to building scalable products.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Get In Touch
+          </a>
+          <a href="#experience" class="btn btn-secondary">
+            <i class="fas fa-arrow-down"></i> View Experience
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img id="profileImage" src="" alt="M R Aakash" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="content-section" id="experience">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Professional journey across startups and enterprises</p>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="experience-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Growth & Strategy</div>
+            <div class="card-company">Karbon Business</div>
+          </div>
+          <div class="card-period">Dec 2025 - Present</div>
+        </div>
+        <div class="card-description">
+          <ul>
+            <li>Contributing to product roadmap planning for AI Accountant, a product currently under development with a target launch in January 2026</li>
+            <li>Collaborating with sales and business development teams to gather customer insights and translate requirements into roadmap features and enhancements</li>
+          </ul>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Product Strategy</span>
+          <span class="tag">Roadmapping</span>
+          <span class="tag">AI Products</span>
+        </div>
+      </div>
+
+      <div class="experience-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Product, Strategy & Growth Intern</div>
+            <div class="card-company">Tardyon AI</div>
+          </div>
+          <div class="card-period">Oct 2025 - Dec 2025</div>
+        </div>
+        <div class="card-description">
+          <ul>
+            <li>Converted 10+ recurring customer queries from sales into 5 prioritized roadmap features for Tardyon AI Genie, a B2B shipment tracking platform</li>
+            <li>Collaborated with a 4-6-member engineering team to align roadmap milestones and support a January 2026 product launch</li>
+            <li>Defined 3-4 product KPIs including feature adoption, active traders, and shipment visibility accuracy</li>
+            <li>Led end-to-end creation of Vendor and Admin portals, leveraging Claude and Cursor to accelerate development</li>
+          </ul>
+        </div>
+        <div class="card-tags">
+          <span class="tag">B2B Products</span>
+          <span class="tag">KPI Definition</span>
+          <span class="tag">Cross-functional</span>
+        </div>
+      </div>
+
+      <div class="experience-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Growth Ops Intern</div>
+            <div class="card-company">Vedantu</div>
+          </div>
+          <div class="card-period">Oct 2023 - Dec 2023</div>
+        </div>
+        <div class="card-description">
+          <ul>
+            <li>Led requirement discovery with 15+ school stakeholders, translating operational needs into validated workflows for internal teams</li>
+            <li>Analyzed and monitored KPIs using operational data to uncover process gaps and recommend efficiency improvements</li>
+            <li>Facilitated cross-functional execution by aligning vendors, sales, and internal teams to streamline day-to-day operations</li>
+          </ul>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Stakeholder Management</span>
+          <span class="tag">Process Optimization</span>
+          <span class="tag">KPI Analysis</span>
+        </div>
+      </div>
+
+      <div class="experience-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Sales and Marketing Intern</div>
+            <div class="card-company">Schneider Electric</div>
+          </div>
+          <div class="card-period">Jun 2023 - Sept 2023</div>
+        </div>
+        <div class="card-description">
+          <ul>
+            <li>Conducted market research and analysis on electric vehicle adoption and sustainability trends, identifying customer needs and adoption barriers</li>
+            <li>Created presentations and insight reports to support sales and marketing teams with product positioning and go-to-market discussions</li>
+          </ul>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Market Research</span>
+          <span class="tag">Go-to-Market</span>
+          <span class="tag">Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="content-section" id="skills">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-subtitle">Core competencies and tools</p>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="skill-name">Product Management</div>
+        <div class="skill-items">
+          Product Strategy • Product Development • Roadmapping • KPI Definition • Requirement Gathering • Stakeholder Management • User-Centric Thinking • Agile Fundamentals
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-tools"></i></div>
+        <div class="skill-name">Tools & Platforms</div>
+        <div class="skill-items">
+          Jira • Notion & Notion AI • Figma (basic wireframes) • Cursor AI • MS Excel • PowerPoint
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-code"></i></div>
+        <div class="skill-name">Technical Skills</div>
+        <div class="skill-items">
+          Python (basic) • Arduino • AWS & Google Cloud Fundamentals
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-users"></i></div>
+        <div class="skill-name">Soft Skills</div>
+        <div class="skill-items">
+          Communication • Leadership • Analytical Thinking • Teamwork • Problem Solving • Punctuality • Flexibility • Conflict Resolution • Self-Motivated
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="content-section" id="projects">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Technical innovations and implementations</p>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="project-card">
+        <div class="project-title">UWB Antenna for Real-Time Health Monitoring</div>
+        <div class="project-description">
+          Designed and simulated an ultra-wideband (UWB) antenna (3.1-10.6 GHz) using CST Studio Suite with focus on gain stability and impedance matching (S11<-10 dB). 
+          Optimized antenna geometry for compact size and high-resolution medical imaging, ensuring SAR compliance for safe wearable/implantable applications. 
+          Analyzed performance parameters including return loss, radiation efficiency, and pulse fidelity for real-time biomedical sensing and diagnostics.
+        </div>
+        <div class="card-tags" style="margin-top: 20px;">
+          <span class="tag">UWB Technology</span>
+          <span class="tag">CST Studio Suite</span>
+          <span class="tag">Biomedical Engineering</span>
+          <span class="tag">Antenna Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="content-section" id="education">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic qualifications and certifications</p>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="education-card">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="edu-title">Bits School of Management</div>
+        <div class="edu-degree">Certification course in FinTech and Artificial Intelligence</div>
+        <div class="edu-period">Oct 2025 - May 2026</div>
+      </div>
+
+      <div class="education-card">
+        <div class="edu-icon"><i class="fas fa-university"></i></div>
+        <div class="edu-title">Vellore Institute of Technology</div>
+        <div class="edu-degree">Bachelor of Technology in Electronics and Communication Engineering</div>
+        <div class="edu-period">Sep 2021 - Oct 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Let's connect and discuss opportunities</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">mraakash81@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+91 9620333500</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Bengaluru, India</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-language"></i></div>
+        <div class="contact-label">Languages</div>
+        <div class="contact-value">English, Hindi, Kannada, Tamil</div>
+      </div>
+    </div>
+    
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="footer-badge">Built with Cursor</span>
+      <span class="visitor-count" id="visitorCount">Visitors: 0</span>
+    </div>
+  </footer>
+
+  <script>
+    // Load profile image
+    function loadProfileImage() {
+      const img = document.getElementById('profileImage');
+      // Set image source directly
+      img.src = './ph.png';
+      img.onerror = function() {
+        // Fallback if image not found
+        this.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\'%3E%3Crect fill=\'%231e293b\' width=\'400\' height=\'500\' rx=\'20\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%2300d4ff\' font-family=\'Arial\' font-size=\'18\'%3EImage not found%3C/text%3E%3C/svg%3E';
+      };
+    }
+    
+    // Load image when page loads
+    window.addEventListener('load', loadProfileImage);
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Visitor counter
+    let count = localStorage.getItem('visitorCount') || 0;
+    count = parseInt(count) + 1;
+    localStorage.setItem('visitorCount', count);
+    document.getElementById('visitorCount').innerText = `Visitors: ${count}`;
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.experience-card, .skill-card, .project-card, .education-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
